@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Libros xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Libro>
+    <ID>978-0321563842</ID>
+    <Data z:Id="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+      <Nombre>The C++ Programming Language</Nombre>
+      <CodigoISBN>978-0321563842</CodigoISBN>
+      <Autor>Bjarne Stroustrup</Autor>
+      <Ejemplares xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+        <d4p1:_array>
+          <Ejemplar i:nil="true" />
+          <Ejemplar z:Id="i2">
+            <NumeroDeEdicion>4</NumeroDeEdicion>
+            <Ubicacion>1</Ubicacion>
+            <Origen z:Ref="i1" />
+          </Ejemplar>
+          <Ejemplar i:nil="true" />
+          <Ejemplar i:nil="true" />
+        </d4p1:_array>
+        <d4p1:_head>1</d4p1:_head>
+        <d4p1:_size>1</d4p1:_size>
+        <d4p1:_tail>2</d4p1:_tail>
+        <d4p1:_version>4</d4p1:_version>
+      </Ejemplares>
+    </Data>
+  </Libro>
+</Libros>

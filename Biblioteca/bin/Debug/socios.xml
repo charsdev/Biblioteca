@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Socios xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Socio>
+    <ID>39655528</ID>
+    <Data xmlns:d3p1="http://schemas.datacontract.org/2004/07/System">
+      <d3p1:m_Item1>Común</d3p1:m_Item1>
+      <d3p1:m_Item2 z:Id="i1" xmlns="" i:type="SocioComun" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+        <Nombre>Carlos</Nombre>
+        <Apellido>Canavesio</Apellido>
+        <NumeroDeIdentificacion>39655528</NumeroDeIdentificacion>
+        <EjemplaresRetirados />
+        <CantidadMaximaDeRetiro>1</CantidadMaximaDeRetiro>
+      </d3p1:m_Item2>
+    </Data>
+  </Socio>
+  <Socio>
+    <ID>19299563</ID>
+    <Data xmlns:d3p1="http://schemas.datacontract.org/2004/07/System">
+      <d3p1:m_Item1>VIP</d3p1:m_Item1>
+      <d3p1:m_Item2 z:Id="i2" xmlns="" i:type="SocioVip" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+        <Nombre>Linus</Nombre>
+        <Apellido>Torvald</Apellido>
+        <NumeroDeIdentificacion>19299563</NumeroDeIdentificacion>
+        <EjemplaresRetirados />
+        <CantidadMaximaDeRetiro>3</CantidadMaximaDeRetiro>
+        <CuotaMensual>19299563</CuotaMensual>
+      </d3p1:m_Item2>
+    </Data>
+  </Socio>
+</Socios>

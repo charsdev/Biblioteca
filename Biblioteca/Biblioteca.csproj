@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01B38930-9559-48E9-81EB-F26B9BDF04E5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Biblioteca</RootNamespace>
+    <AssemblyName>Biblioteca</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\BibliotecaController.cs" />
+    <Compile Include="Model\Collections\Historial.cs" />
+    <Compile Include="Model\Interfaces\IUpdateable.cs" />
+    <Compile Include="Utils\DataContractUtils.cs" />
+    <Compile Include="View\PrestamosYDevoluciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PrestamosYDevoluciones.Designer.cs">
+      <DependentUpon>PrestamosYDevoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Core\DataBase.cs" />
+    <Compile Include="Model\Entities\Ejemplar.cs" />
+    <Compile Include="Model\Collections\Libros.cs" />
+    <Compile Include="Model\Entities\Prestamo.cs" />
+    <Compile Include="Model\Entities\Libro.cs" />
+    <Compile Include="Model\Collections\Prestamos.cs" />
+    <Compile Include="Model\Entities\Socio.cs" />
+    <Compile Include="Model\Entities\SocioComun.cs" />
+    <Compile Include="Model\Collections\Socios.cs" />
+    <Compile Include="Model\Entities\SocioVip.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\MessageResult.cs" />
+    <Compile Include="View\NuevoEjemplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NuevoEjemplar.Designer.cs">
+      <DependentUpon>NuevoEjemplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NuevoLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NuevoLibro.Designer.cs">
+      <DependentUpon>NuevoLibro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NuevoSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NuevoSocio.Designer.cs">
+      <DependentUpon>NuevoSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Operaciones.Designer.cs">
+      <DependentUpon>Operaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewMediator.cs" />
+    <Compile Include="View\VistaLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VistaLibros.Designer.cs">
+      <DependentUpon>VistaLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VistaSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VistaSocios.Designer.cs">
+      <DependentUpon>VistaSocios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\PrestamosYDevoluciones.resx">
+      <DependentUpon>PrestamosYDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\NuevoEjemplar.resx">
+      <DependentUpon>NuevoEjemplar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NuevoLibro.resx">
+      <DependentUpon>NuevoLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NuevoSocio.resx">
+      <DependentUpon>NuevoSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Operaciones.resx">
+      <DependentUpon>Operaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VistaLibros.resx">
+      <DependentUpon>VistaLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VistaSocios.resx">
+      <DependentUpon>VistaSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wordart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

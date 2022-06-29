@@ -1,0 +1,16 @@
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.Operaciones.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.NuevoSocio.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.NuevoLibro.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.NuevoEjemplar.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.PrestamosYDevoluciones.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.VistaLibros.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.VistaSocios.resources
