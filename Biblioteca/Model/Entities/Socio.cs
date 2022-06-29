@@ -25,7 +25,6 @@ namespace Biblioteca.Model
 
         protected Socio(string nombre, string apellido, ulong numeroDeIdentificacion)
         {
-            EjemplaresRetirados = new List<Ejemplar>();
             Nombre = nombre;
             Apellido = apellido;
             NumeroDeIdentificacion = numeroDeIdentificacion;

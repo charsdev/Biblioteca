@@ -24,4 +24,49 @@
       </Ejemplares>
     </Data>
   </Libro>
+  <Libro>
+    <ID>978-0131103627</ID>
+    <Data z:Id="i3" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+      <Nombre>The C Programming Language</Nombre>
+      <CodigoISBN>978-0131103627</CodigoISBN>
+      <Autor>Brian W. Kernighan </Autor>
+      <Ejemplares xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+        <d4p1:_array />
+        <d4p1:_head>0</d4p1:_head>
+        <d4p1:_size>0</d4p1:_size>
+        <d4p1:_tail>0</d4p1:_tail>
+        <d4p1:_version>0</d4p1:_version>
+      </Ejemplares>
+    </Data>
+  </Libro>
+  <Libro>
+    <ID>111</ID>
+    <Data z:Id="i4" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+      <Nombre>asd</Nombre>
+      <CodigoISBN>111</CodigoISBN>
+      <Autor>asdasd</Autor>
+      <Ejemplares xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+        <d4p1:_array />
+        <d4p1:_head>0</d4p1:_head>
+        <d4p1:_size>0</d4p1:_size>
+        <d4p1:_tail>0</d4p1:_tail>
+        <d4p1:_version>0</d4p1:_version>
+      </Ejemplares>
+    </Data>
+  </Libro>
+  <Libro>
+    <ID>xxxx</ID>
+    <Data z:Id="i5" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+      <Nombre>asdx</Nombre>
+      <CodigoISBN>xxxx</CodigoISBN>
+      <Autor>asdasdxx</Autor>
+      <Ejemplares xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+        <d4p1:_array />
+        <d4p1:_head>0</d4p1:_head>
+        <d4p1:_size>0</d4p1:_size>
+        <d4p1:_tail>0</d4p1:_tail>
+        <d4p1:_version>0</d4p1:_version>
+      </Ejemplares>
+    </Data>
+  </Libro>
 </Libros>

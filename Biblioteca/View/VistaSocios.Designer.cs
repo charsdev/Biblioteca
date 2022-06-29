@@ -62,6 +62,7 @@ namespace Biblioteca.View
             this.Name = "VistaSocios";
             this.Text = "BibliotecaExpress: Socios";
             this.Load += new System.EventHandler(this.VistaSocios_Load);
+            this.Activated += new System.EventHandler(this.VistaSocios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

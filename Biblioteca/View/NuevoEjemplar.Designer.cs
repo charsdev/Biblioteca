@@ -127,6 +127,8 @@ namespace Biblioteca.View
             this.Name = "NuevoEjemplar";
             this.Text = "Biblioteca Express : Nuevo Ejemplar";
             this.Load += new System.EventHandler(this.NuevoEjemplar_Load);
+            this.Deactivate += new System.EventHandler(this.NuevoEjemplar_Unload);
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

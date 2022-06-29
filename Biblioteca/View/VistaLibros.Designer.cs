@@ -62,9 +62,9 @@ namespace Biblioteca.View
             this.Name = "VistaLibros";
             this.Text = "Biblioteca Express: Libros";
             this.Load += new System.EventHandler(this.VistaLibros_Load);
+            this.Activated += new System.EventHandler(this.VistaLibros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

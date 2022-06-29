@@ -57,5 +57,12 @@ namespace Biblioteca.View
             && !string.IsNullOrWhiteSpace(AutorTextBox.Text)
             && !string.IsNullOrWhiteSpace(CodigoISBNTextBox.Text);
         }
+
+        private void NuevoLibro_Unload(object sender, EventArgs e)
+        {
+            CodigoISBNTextBox.Clear();
+            AutorTextBox.Clear();
+            TituloTextBox.Clear();
+        }
     }
 }

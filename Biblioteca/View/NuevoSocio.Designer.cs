@@ -188,6 +188,8 @@ namespace Biblioteca.View
             this.Name = "NuevoSocio";
             this.Text = "Biblioteca Expres: Nuevo Socio";
             this.Load += new System.EventHandler(this.NuevoSocio_Load);
+            this.Deactivate += new System.EventHandler(this.NuevoSocio_Unload);
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

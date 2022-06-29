@@ -64,7 +64,9 @@ namespace Biblioteca.Controller
 
             Libro libro = new Libro(titulo, codigoISBN, autor);
             DataBase.Libros.Add(libro.CodigoISBN, libro);
+
             DataBase.Libros.Update();
+
             return new MessageResult($"El libro {libro.Nombre} ha sido añadido", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

@@ -62,5 +62,12 @@ namespace Biblioteca.View
                     && !string.IsNullOrWhiteSpace(UbicacionTextBox.Text)
                     && !string.IsNullOrWhiteSpace(TexboxEdicion.Text);
         }
+
+        private void NuevoEjemplar_Unload(object sender, EventArgs e)
+        {
+            CodigoISBNTextBox.Clear();
+            UbicacionTextBox.Clear();
+            TexboxEdicion.Clear();
+        }
     }
 }

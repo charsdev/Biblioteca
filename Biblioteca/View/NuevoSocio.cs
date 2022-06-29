@@ -103,5 +103,15 @@ namespace Biblioteca.View
         {
             CheckTextboxs();
         }
+
+
+        private void NuevoSocio_Unload(object sender, EventArgs e)
+        {
+            NombreTextBox.Clear();
+            ApellidoTextBox.Clear();
+            NumeroIdentificacionTextBox.Clear();
+            VIP.Checked = true; //por default
+            CuotaMensualTextBox.Clear();
+        }
     }
 }
