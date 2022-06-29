@@ -11,14 +11,11 @@ namespace Biblioteca
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             DataBase.Init();
-            //DataBase.Clear(); 
+            //DataBase.Clear();  quieres resetear la base de datos? usa descomenta esto
             DataBase.ChargeData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
