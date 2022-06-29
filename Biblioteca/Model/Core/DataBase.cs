@@ -1,23 +1,20 @@
 ﻿using Biblioteca.Utils;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Biblioteca.Model
 {
     public static class DataBase
     {
-        public static Socios Socios { get; set; }
-        public static Libros Libros { get; set; }
-        public static Prestamos Prestamos { get; set; }
-        public static Historial Historial { get; set; }
+        public static ColeccionDeSocios Socios { get; set; }
+        public static ColeccionDeLibros Libros { get; set; }
+        public static ColeccionDePrestamos Prestamos { get; set; }
+        public static HisotorialDePrestamosYDevoluciones Historial { get; set; }
 
         public static void Init()
         {
-            Socios = new Socios();
-            Libros = new Libros();
-            Prestamos = new Prestamos();
-            Historial = new Historial();
+            Socios = new ColeccionDeSocios();
+            Libros = new ColeccionDeLibros();
+            Prestamos = new ColeccionDePrestamos();
+            Historial = new HisotorialDePrestamosYDevoluciones();
         }
 
         //carga datos desde los archivos xml
@@ -36,7 +33,6 @@ namespace Biblioteca.Model
             Libros.Clear();
             Prestamos.Clear();
             Historial.Clear();
-            UpdateAll();
         }
 
         public static void UpdateAll()
@@ -46,7 +42,6 @@ namespace Biblioteca.Model
             Prestamos.Update();
             Historial.Update();
         }
-
     }
 
 }

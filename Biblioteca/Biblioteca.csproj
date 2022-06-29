@@ -48,8 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BibliotecaController.cs" />
-    <Compile Include="Model\Collections\Historial.cs" />
-    <Compile Include="Model\Interfaces\IUpdateable.cs" />
+    <Compile Include="Model\Collections\HisotorialDePrestamosYDevoluciones.cs" />
+    <Compile Include="Model\Interfaces\ICollectionDataContract.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DataContractUtils.cs" />
     <Compile Include="View\PrestamosYDevoluciones.cs">
       <SubType>Form</SubType>
@@ -59,13 +64,13 @@
     </Compile>
     <Compile Include="Model\Core\DataBase.cs" />
     <Compile Include="Model\Entities\Ejemplar.cs" />
-    <Compile Include="Model\Collections\Libros.cs" />
+    <Compile Include="Model\Collections\ColeccionDeLibros.cs" />
     <Compile Include="Model\Entities\Prestamo.cs" />
     <Compile Include="Model\Entities\Libro.cs" />
-    <Compile Include="Model\Collections\Prestamos.cs" />
+    <Compile Include="Model\Collections\ColeccionDePrestamos.cs" />
     <Compile Include="Model\Entities\Socio.cs" />
     <Compile Include="Model\Entities\SocioComun.cs" />
-    <Compile Include="Model\Collections\Socios.cs" />
+    <Compile Include="Model\Collections\ColeccionDeSocios.cs" />
     <Compile Include="Model\Entities\SocioVip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,31 +100,26 @@
       <DependentUpon>Operaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ViewMediator.cs" />
-    <Compile Include="View\VistaLibros.cs">
+    <Compile Include="View\ListaDeLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\VistaLibros.Designer.cs">
-      <DependentUpon>VistaLibros.cs</DependentUpon>
+    <Compile Include="View\ListaDeLibros.Designer.cs">
+      <DependentUpon>ListaDeLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VistaSocios.cs">
+    <Compile Include="View\ListaDeSocios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\VistaSocios.Designer.cs">
-      <DependentUpon>VistaSocios.cs</DependentUpon>
+    <Compile Include="View\ListaDeSocios.Designer.cs">
+      <DependentUpon>ListaDeSocios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\PrestamosYDevoluciones.resx">
       <DependentUpon>PrestamosYDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="View\NuevoEjemplar.resx">
       <DependentUpon>NuevoEjemplar.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,11 +132,11 @@
     <EmbeddedResource Include="View\Operaciones.resx">
       <DependentUpon>Operaciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VistaLibros.resx">
-      <DependentUpon>VistaLibros.cs</DependentUpon>
+    <EmbeddedResource Include="View\ListaDeLibros.resx">
+      <DependentUpon>ListaDeLibros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VistaSocios.resx">
-      <DependentUpon>VistaSocios.cs</DependentUpon>
+    <EmbeddedResource Include="View\ListaDeSocios.resx">
+      <DependentUpon>ListaDeSocios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -155,7 +155,7 @@
     <None Include="Resources\wordart.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <Content Include="Resources\pngegg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

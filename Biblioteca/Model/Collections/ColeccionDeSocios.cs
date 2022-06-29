@@ -11,20 +11,21 @@ namespace Biblioteca.Model
     Namespace = "")]
     [KnownType(typeof(SocioComun))]
     [KnownType(typeof(SocioVip))]
-    public class Socios : Dictionary<ulong, Tuple<string, Socio>>, IUpdateable
+    public class ColeccionDeSocios : Dictionary<ulong, Tuple<string, Socio>>, ICollectionDataContract
     {
-        public const string File = "socios.xml";
-
-        public Socios()
-        {
-        }
+        public string File { get => "socios.xml"; }
 
         public void Update()
         {
             this.Serialize(File);
         }
-    }
 
+        public new void Clear()
+        {
+            base.Clear();
+            this.Serialize(File);
+        }
+    }
  
 }
 

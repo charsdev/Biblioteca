@@ -102,6 +102,7 @@ namespace Biblioteca.View
             this.GrillaPrestamos.AllowUserToDeleteRows = false;
             this.GrillaPrestamos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GrillaPrestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GrillaPrestamos.Location = new System.Drawing.Point(335, 27);
             this.GrillaPrestamos.Name = "GrillaPrestamos";
             this.GrillaPrestamos.ReadOnly = true;
@@ -133,8 +134,9 @@ namespace Biblioteca.View
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.NumeroDeSocioLabel);
             this.Name = "PrestamosYDevoluciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express: Prestamos & Devoluciones";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.Load += new System.EventHandler(this.PrestamosYDevoluciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPrestamos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,12 +152,6 @@ namespace Biblioteca.View
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DevolucionBoton;
         private System.Windows.Forms.DataGridView GrillaPrestamos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ejemplarDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn socioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDePrestamoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
     }
 }

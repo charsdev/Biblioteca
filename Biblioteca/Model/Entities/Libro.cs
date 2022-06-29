@@ -19,11 +19,6 @@ namespace Biblioteca.Model
         [DataMember(Name = "Ejemplares", Order = 4)]
         private Queue<Ejemplar> _ejemplares { get; set; }
 
-        public Libro()
-        {
-
-        }
-
         public Libro(string nombre, string codigoISBN, string autor)
         {
             Nombre = nombre;

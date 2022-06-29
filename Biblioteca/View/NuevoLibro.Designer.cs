@@ -125,6 +125,7 @@ namespace Biblioteca.View
             this.Controls.Add(this.AutorTextBox);
             this.Controls.Add(this.TituloTextBox);
             this.Name = "NuevoLibro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express: Nuevo Libro";
             this.Deactivate += new System.EventHandler(this.NuevoLibro_Unload);
             this.ResumeLayout(false);

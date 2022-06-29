@@ -1,4 +1,9 @@
 ﻿
+using System;
+using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
+
 namespace Biblioteca.View
 {
     partial class Operaciones
@@ -90,7 +95,7 @@ namespace Biblioteca.View
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(525, 27);
+            this.button5.Location = new System.Drawing.Point(511, 47);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(73, 27);
             this.button5.TabIndex = 7;
@@ -101,7 +106,7 @@ namespace Biblioteca.View
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(525, 60);
+            this.button6.Location = new System.Drawing.Point(511, 80);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 27);
             this.button6.TabIndex = 8;
@@ -113,7 +118,7 @@ namespace Biblioteca.View
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(326, 211);
+            this.pictureBox3.Location = new System.Drawing.Point(326, 221);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(282, 97);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -132,19 +137,24 @@ namespace Biblioteca.View
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Biblioteca.Properties.Resources.wordart;
-            this.pictureBox1.Location = new System.Drawing.Point(105, 7);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Biblioteca.Properties.Resources.wordart;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(99, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(400, 188);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Operaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 401);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(606, 401);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox3);
@@ -154,8 +164,11 @@ namespace Biblioteca.View
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.Name = "Operaciones";
-            this.Text = "Biblioteca Express";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Biblioteca Express: Operaciones";
             this.Load += new System.EventHandler(this.Operaciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

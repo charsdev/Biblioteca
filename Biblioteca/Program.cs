@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.View;
 using Biblioteca.Controller;
+using System.Runtime.InteropServices;
 
 namespace Biblioteca
 {
@@ -15,7 +16,7 @@ namespace Biblioteca
         static void Main()
         {
             DataBase.Init();
-            //DataBase.Clear();  quieres resetear la base de datos? usa descomenta esto
+            DataBase.Clear(); // Desea que persista la base de datos? Comente esta linea
             DataBase.ChargeData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -24,3 +25,5 @@ namespace Biblioteca
         }
     }
 }
+
+

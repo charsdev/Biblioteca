@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Biblioteca.View
 {
@@ -15,7 +16,8 @@ namespace Biblioteca.View
         public static PrestamosYDevoluciones PrestamosYDevoluciones { get; set; }
         public static Operaciones Operaciones { get; set; }
         public static VistaLibros VistaLibros { get; set; }
-        public static VistaSocios VistaSocios { get; set; }
+        public static ListaDeSocios VistaSocios { get; set; }
+        public static Form vistaActual = null;
 
         public static void Init(BibliotecaController bibliotecaController)
         {
@@ -25,7 +27,8 @@ namespace Biblioteca.View
             PrestamosYDevoluciones = new PrestamosYDevoluciones(bibliotecaController);
             Operaciones = new Operaciones();
             VistaLibros = new VistaLibros(bibliotecaController);
-            VistaSocios = new VistaSocios(bibliotecaController);
+            VistaSocios = new ListaDeSocios(bibliotecaController);
         }
+
     }
 }

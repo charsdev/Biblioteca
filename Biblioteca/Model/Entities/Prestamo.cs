@@ -16,11 +16,6 @@ namespace Biblioteca.Model
         [DataMember(Name = "FechaDePrestamo", Order = 3)]
         public DateTime FechaDePrestamo { get; private set; }
 
-        public Prestamo()
-        {
-
-        }
-
         public Prestamo(Socio socio, Ejemplar ejemplar)
         {
             Socio = socio;

@@ -101,8 +101,8 @@ namespace Biblioteca.Controller
                 {
                     (i + 1).ToString(),
                     tipo,
-                    prestamo.Ejemplar.Origen.CodigoISBN,
-                    prestamo.Ejemplar.Origen.Nombre,
+                    prestamo.Ejemplar.Libro.CodigoISBN,
+                    prestamo.Ejemplar.Libro.Nombre,
                     prestamo.Socio.NumeroDeIdentificacion.ToString(),
                     prestamo.Socio.Nombre + ' ' + prestamo.Socio.Apellido,
                     //Dado que solo hay dos opciones (Prestamo o Devolución) opto por un operador ternario
@@ -254,7 +254,7 @@ namespace Biblioteca.Controller
 
             foreach (var ejemplar in socio.EjemplaresRetirados)
             {
-                if (ejemplar.Origen.CodigoISBN == libroID)
+                if (ejemplar.Libro.CodigoISBN == libroID)
                 {
                     ejemplarADevolver = ejemplar;
                     return true;

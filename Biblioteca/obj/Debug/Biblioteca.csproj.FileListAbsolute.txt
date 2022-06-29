@@ -13,4 +13,4 @@ C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.Nuev
 C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.NuevoEjemplar.resources
 C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.PrestamosYDevoluciones.resources
 C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.VistaLibros.resources
-C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.VistaSocios.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.View.ListaDeSocios.resources

@@ -18,6 +18,7 @@ namespace Biblioteca.View
         public VistaLibros(BibliotecaController bibliotecaController)
         {
             InitializeComponent();
+            DefinirColumnas();
             _bibliotecaController = bibliotecaController;
         }
 
@@ -57,7 +58,6 @@ namespace Biblioteca.View
 
         private void VistaLibros_Load(object sender, EventArgs e)
         {
-            DefinirColumnas();
             MostrarListadoDeLibrosActual();
         }
        

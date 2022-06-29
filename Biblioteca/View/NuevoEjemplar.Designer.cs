@@ -125,10 +125,10 @@ namespace Biblioteca.View
             this.Controls.Add(this.UbicacionTextBox);
             this.Controls.Add(this.CodigoISBNTextBox);
             this.Name = "NuevoEjemplar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express : Nuevo Ejemplar";
-            this.Load += new System.EventHandler(this.NuevoEjemplar_Load);
             this.Deactivate += new System.EventHandler(this.NuevoEjemplar_Unload);
-
+            this.Load += new System.EventHandler(this.NuevoEjemplar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

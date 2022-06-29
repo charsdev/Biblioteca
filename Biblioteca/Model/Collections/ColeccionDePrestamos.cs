@@ -6,16 +6,18 @@ using System.Runtime.Serialization;
 namespace Biblioteca.Model
 {
     [CollectionDataContract(Name = "Prestamos")]
-    public class Prestamos : List<Prestamo>, IUpdateable
+    public class ColeccionDePrestamos : List<Prestamo>, ICollectionDataContract
     {
-        public const string File = "prestamos.xml";
-
-        public Prestamos()
-        {
-        }
+        public string File { get => "prestamos.xml"; }
 
         public void Update()
         {
+            this.Serialize(File);
+        }
+
+        public new void Clear()
+        {
+            base.Clear();
             this.Serialize(File);
         }
     }

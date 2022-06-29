@@ -10,18 +10,21 @@ namespace Biblioteca.Model
 {
     [CollectionDataContract(Name = "Libros", ItemName = "Libro", KeyName = "ID", ValueName = "Data",
     Namespace = "")]
-    public class Libros : Dictionary<string, Libro>, IUpdateable
+    public class ColeccionDeLibros : Dictionary<string, Libro>, ICollectionDataContract
     {
-        public const string File = "libros.xml";
-
-        public Libros()
-        {
-        }
+        public string File { get => "libros.xml"; }
 
         public void Update()
         {
             this.Serialize(File);
         }
+
+        public new void Clear()
+        {
+            base.Clear();
+            this.Serialize(File);
+        }
+
     }
 }
 

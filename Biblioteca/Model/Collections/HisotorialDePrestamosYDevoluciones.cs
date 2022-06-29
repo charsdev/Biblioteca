@@ -7,19 +7,20 @@ using System.Runtime.Serialization;
 namespace Biblioteca.Model
 {
     [CollectionDataContract(Name = "Historial")]
-    public class Historial : List<Tuple<string, Prestamo, DateTime>>, IUpdateable
+    public class HisotorialDePrestamosYDevoluciones : List<Tuple<string, Prestamo, DateTime>>, ICollectionDataContract
     {
-        public const string File = "historial.xml";
-
-        public Historial()
-        {
-        }
+        public string File { get => "historial.xml"; }
 
         public void Update()
         {
             this.Serialize(File);
         }
 
+        public new void Clear()
+        {
+            base.Clear();
+            this.Serialize(File);
+        }
     }
 }
 

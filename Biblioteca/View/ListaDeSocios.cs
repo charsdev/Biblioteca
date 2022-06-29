@@ -11,14 +11,15 @@ using System.Windows.Forms;
 
 namespace Biblioteca.View
 {
-    public partial class VistaSocios : Form
+    public partial class ListaDeSocios : Form
     {
         private BibliotecaController _bibliotecaController;
 
-        public VistaSocios(BibliotecaController bibliotecaController)
+        public ListaDeSocios(BibliotecaController bibliotecaController)
         {
             InitializeComponent();
             _bibliotecaController = bibliotecaController;
+            DefinirColumnas();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,7 +31,6 @@ namespace Biblioteca.View
 
         private void VistaSocios_Load(object sender, EventArgs e)
         {
-            DefinirColumnas();
             MostrarListadoSociosActual();
         }
 

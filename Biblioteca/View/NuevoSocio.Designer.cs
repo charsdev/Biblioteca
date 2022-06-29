@@ -186,10 +186,10 @@ namespace Biblioteca.View
             this.Controls.Add(this.ApellidoTextBox);
             this.Controls.Add(this.NombreTextBox);
             this.Name = "NuevoSocio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Expres: Nuevo Socio";
-            this.Load += new System.EventHandler(this.NuevoSocio_Load);
             this.Deactivate += new System.EventHandler(this.NuevoSocio_Unload);
-
+            this.Load += new System.EventHandler(this.NuevoSocio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

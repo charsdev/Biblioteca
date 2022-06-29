@@ -14,7 +14,7 @@ namespace Biblioteca.View
             _bibliotecaController = bibliotecaController;
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        private void PrestamosYDevoluciones_Load(object sender, EventArgs e)
         {
             DefinirColumnas();
             MostrarListadoPrestamosActual();

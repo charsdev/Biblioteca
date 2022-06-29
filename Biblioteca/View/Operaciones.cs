@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +15,7 @@ namespace Biblioteca.View
 {
     public partial class Operaciones : Form
     {
+
         public Operaciones()
         {
             InitializeComponent();
@@ -56,6 +60,16 @@ namespace Biblioteca.View
         {
             ViewMediator.VistaSocios.Show();
             this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
