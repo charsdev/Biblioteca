@@ -2,7 +2,6 @@
 using System.Runtime.Serialization;
 using Biblioteca.Interfaces;
 using Biblioteca.Utils;
-using System.Collections;
 using System;
 
 namespace Biblioteca.Model

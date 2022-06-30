@@ -1,7 +1,7 @@
 ﻿
 namespace Biblioteca.View
 {
-    partial class VistaLibros
+    partial class ListaDeLibros
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@ namespace Biblioteca.View
             this.button1.TabIndex = 3;
             this.button1.Text = "Volver a Operaciones";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.VolverAOperaciones);
             // 
             // dataGridView1
             // 

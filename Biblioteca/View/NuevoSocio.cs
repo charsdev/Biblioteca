@@ -14,17 +14,14 @@ namespace Biblioteca.View
 {
     public partial class NuevoSocio : Form
     {
-        private readonly BibliotecaController _bibliotecaController;
+        private readonly SociosController _nuevoSocioController;
+        private readonly ViewMediator _viewMediator;
 
-        public NuevoSocio(BibliotecaController bibliotecaController)
+        public NuevoSocio(SociosController nuevoSocioController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            _bibliotecaController = bibliotecaController;
-        }
-
-        private void NuevoSocio_Load(object sender, EventArgs e)
-        {
-
+            _nuevoSocioController = nuevoSocioController;
+            _viewMediator = viewMediator;
         }
 
         private void VipRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -51,11 +48,11 @@ namespace Biblioteca.View
             if (VIP.Checked)
             {
                 var cuotaMensual = NumeroIdentificacionTextBox.Text;
-                resultado = _bibliotecaController.AñadirNuevoSocioVip(nombre, apellido, numeroIdentificacion, cuotaMensual);
+                resultado = _nuevoSocioController.AñadirNuevoSocioVip(nombre, apellido, numeroIdentificacion, cuotaMensual);
             }
             else if (Comun.Checked)
             {
-                resultado = _bibliotecaController.AñadirNuevoSocioComun(nombre, apellido, numeroIdentificacion);
+                resultado = _nuevoSocioController.AñadirNuevoSocioComun(nombre, apellido, numeroIdentificacion);
             }
 
             MessageBoxExtension.Show(resultado);
@@ -63,8 +60,7 @@ namespace Biblioteca.View
 
         private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
-            this.Hide();
+            _viewMediator.IrAOperaciones();
         }
 
         private void NombreTextBox_TextChanged(object sender, EventArgs e)

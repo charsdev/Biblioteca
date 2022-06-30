@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 
@@ -13,22 +6,19 @@ namespace Biblioteca.View
 {
     public partial class NuevoEjemplar : Form
     {
-        private readonly BibliotecaController _bibliotecaController;
+        private readonly LibrosController _bibliotecaController;
+        private readonly ViewMediator _viewMediator;
 
-        public NuevoEjemplar(BibliotecaController bibliotecaController)
+        public NuevoEjemplar(LibrosController bibliotecaController, ViewMediator viewMediator)
         {
             InitializeComponent();
             _bibliotecaController = bibliotecaController;
-        }
-
-        private void NuevoEjemplar_Load(object sender, EventArgs e)
-        {
-
+            _viewMediator = viewMediator;
         }
 
         private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
+            _viewMediator.IrAOperaciones();
             Hide();
         }
 

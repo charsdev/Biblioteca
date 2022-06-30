@@ -11,21 +11,22 @@ using System.Windows.Forms;
 
 namespace Biblioteca.View
 {
-    public partial class VistaLibros : Form
+    public partial class ListaDeLibros : Form
     {
-        private BibliotecaController _bibliotecaController;
+        private readonly LibrosController _librosController;
+        private readonly ViewMediator _viewMediator;
 
-        public VistaLibros(BibliotecaController bibliotecaController)
+        public ListaDeLibros(LibrosController librosController, ViewMediator viewMediator)
         {
             InitializeComponent();
             DefinirColumnas();
-            _bibliotecaController = bibliotecaController;
+            _librosController = librosController;
+            _viewMediator = viewMediator;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
-            Hide();
+            _viewMediator.IrAOperaciones();
         }
 
         private void DefinirColumnas()
@@ -48,7 +49,7 @@ namespace Biblioteca.View
             //Limpiamos lista para traer todos las filas nuevamente y evitar agregarlas nuevamente
             dataGridView1.Rows.Clear();
 
-            var listadoDeLibros = _bibliotecaController.ObtenerListadoLibros();
+            var listadoDeLibros = _librosController.ObtenerListadoLibros();
 
             for (int i = 0; i < listadoDeLibros.Count; i++)
             {

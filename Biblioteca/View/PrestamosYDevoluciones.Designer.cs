@@ -1,5 +1,4 @@
-﻿
-namespace Biblioteca.View
+﻿namespace Biblioteca.View
 {
     partial class PrestamosYDevoluciones
     {
@@ -30,9 +29,9 @@ namespace Biblioteca.View
         private void InitializeComponent()
         {
             this.NumeroDeSocioLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.socioTexbox = new System.Windows.Forms.TextBox();
             this.PrestamoBoton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LibroTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DevolucionBoton = new System.Windows.Forms.Button();
             this.GrillaPrestamos = new System.Windows.Forms.DataGridView();
@@ -51,11 +50,11 @@ namespace Biblioteca.View
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.socioTexbox.Location = new System.Drawing.Point(177, 27);
+            this.socioTexbox.Name = "textBox1";
+            this.socioTexbox.Size = new System.Drawing.Size(112, 20);
+            this.socioTexbox.TabIndex = 1;
+            this.socioTexbox.TextChanged += new System.EventHandler(this.SocioTextBox_TextChanged);
             // 
             // PrestamoBoton
             // 
@@ -70,11 +69,11 @@ namespace Biblioteca.View
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(112, 20);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.LibroTextBox.Location = new System.Drawing.Point(177, 56);
+            this.LibroTextBox.Name = "textBox2";
+            this.LibroTextBox.Size = new System.Drawing.Size(112, 20);
+            this.LibroTextBox.TabIndex = 4;
+            this.LibroTextBox.TextChanged += new System.EventHandler(this.LibroTextBox_TextChanged);
             // 
             // label1
             // 
@@ -128,10 +127,10 @@ namespace Biblioteca.View
             this.Controls.Add(this.button1);
             this.Controls.Add(this.GrillaPrestamos);
             this.Controls.Add(this.DevolucionBoton);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.LibroTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PrestamoBoton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.socioTexbox);
             this.Controls.Add(this.NumeroDeSocioLabel);
             this.Name = "PrestamosYDevoluciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -146,9 +145,9 @@ namespace Biblioteca.View
         #endregion
 
         private System.Windows.Forms.Label NumeroDeSocioLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox socioTexbox;
         private System.Windows.Forms.Button PrestamoBoton;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox LibroTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DevolucionBoton;
         private System.Windows.Forms.DataGridView GrillaPrestamos;

@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-
-namespace Biblioteca.View
+﻿namespace Biblioteca.View
 {
     partial class Operaciones
     {
@@ -146,7 +140,6 @@ namespace Biblioteca.View
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Operaciones
             // 
@@ -169,7 +162,6 @@ namespace Biblioteca.View
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express: Operaciones";
-            this.Load += new System.EventHandler(this.Operaciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

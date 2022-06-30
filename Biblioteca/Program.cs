@@ -20,8 +20,8 @@ namespace Biblioteca
             DataBase.ChargeData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ViewMediator.Init(new BibliotecaController());
-            Application.Run(ViewMediator.Operaciones);
+            ViewMediator viewMediator = new ViewMediator();
+            Application.Run(viewMediator.VistaActual);
         }
     }
 }

@@ -10,11 +10,6 @@ namespace Biblioteca.Model
     [DataContract(Name = "SocioComun", Namespace = "")]
     public sealed class SocioComun : Socio
     {
-        public SocioComun()
-        {
-
-        }
-
         public SocioComun(string nombre, string apellido, ulong numeroDeIdentificacion)
             : base(nombre, apellido, numeroDeIdentificacion)
         {

@@ -1,30 +1,23 @@
 ﻿using Biblioteca.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Biblioteca.View
 {
     public partial class NuevoLibro : Form
     {
-        private readonly BibliotecaController _bibliotecaController;
-
-        public NuevoLibro(BibliotecaController bibliotecaController)
+        private readonly LibrosController _nuevoLibroController;
+        private readonly ViewMediator _viewMediator;
+        public NuevoLibro(LibrosController nuevoLibroController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            _bibliotecaController = bibliotecaController;
+            _nuevoLibroController = nuevoLibroController;
+            _viewMediator = viewMediator;
         }
 
         private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
-            Hide();
+            _viewMediator.IrAOperaciones();
         }
 
         private void AñadirLibro(object sender, EventArgs e)
@@ -33,7 +26,7 @@ namespace Biblioteca.View
             var codigoISBN = CodigoISBNTextBox.Text;
             var autor = AutorTextBox.Text;
 
-            var resultado = _bibliotecaController.AñadirNuevoLibro(titulo, codigoISBN, autor);
+            var resultado = _nuevoLibroController.AñadirNuevoLibro(titulo, codigoISBN, autor);
             Utils.MessageBoxExtension.Show(resultado);
         }
 

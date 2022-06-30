@@ -13,21 +13,21 @@ namespace Biblioteca.View
 {
     public partial class ListaDeSocios : Form
     {
-        private BibliotecaController _bibliotecaController;
+        private readonly SociosController _sociosController;
+        private readonly ViewMediator _viewMediator;
 
-        public ListaDeSocios(BibliotecaController bibliotecaController)
+        public ListaDeSocios(SociosController sociosController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            _bibliotecaController = bibliotecaController;
+            _sociosController = sociosController;
+            _viewMediator = viewMediator;
             DefinirColumnas();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
-            Hide();
+            _viewMediator.IrAOperaciones();
         }
-
 
         private void VistaSocios_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Biblioteca.View
             //Limpiamos lista para traer todos las filas nuevamente y evitar agregarlas nuevamente
             dataGridView1.Rows.Clear();
 
-            var listadoDeSocios = _bibliotecaController.ObtenerListadoSocios();
+            var listadoDeSocios = _sociosController.ObtenerListadoSocios();
 
             for (int i = 0; i < listadoDeSocios.Count; i++)
             {

@@ -128,7 +128,6 @@ namespace Biblioteca.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express : Nuevo Ejemplar";
             this.Deactivate += new System.EventHandler(this.NuevoEjemplar_Unload);
-            this.Load += new System.EventHandler(this.NuevoEjemplar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

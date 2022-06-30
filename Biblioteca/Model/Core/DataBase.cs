@@ -7,14 +7,14 @@ namespace Biblioteca.Model
         public static ColeccionDeSocios Socios { get; set; }
         public static ColeccionDeLibros Libros { get; set; }
         public static ColeccionDePrestamos Prestamos { get; set; }
-        public static HisotorialDePrestamosYDevoluciones Historial { get; set; }
+        public static HistorialDePrestamosYDevoluciones Historial { get; set; }
 
         public static void Init()
         {
             Socios = new ColeccionDeSocios();
             Libros = new ColeccionDeLibros();
             Prestamos = new ColeccionDePrestamos();
-            Historial = new HisotorialDePrestamosYDevoluciones();
+            Historial = new HistorialDePrestamosYDevoluciones();
         }
 
         //carga datos desde los archivos xml

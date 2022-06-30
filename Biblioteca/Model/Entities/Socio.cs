@@ -18,11 +18,6 @@ namespace Biblioteca.Model
         [DataMember(Name = "CantidadMaximaDeRetiro", Order = 5)]
         protected uint CantidadMaximaDeRetiro { get; set; }
 
-        protected Socio()
-        {
-
-        }
-
         protected Socio(string nombre, string apellido, ulong numeroDeIdentificacion)
         {
             Nombre = nombre;

@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\BibliotecaController.cs" />
-    <Compile Include="Model\Collections\HisotorialDePrestamosYDevoluciones.cs" />
+    <Compile Include="Controller\LibrosController.cs" />
+    <Compile Include="Controller\SociosController.cs" />
+    <Compile Include="Controller\PrestamosController.cs" />
+    <Compile Include="Model\Collections\HistorialDePrestamosYDevoluciones.cs" />
     <Compile Include="Model\Interfaces\ICollectionDataContract.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -155,7 +157,7 @@
     <None Include="Resources\wordart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\pngegg.png" />
+    <Content Include="Resources\clippy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

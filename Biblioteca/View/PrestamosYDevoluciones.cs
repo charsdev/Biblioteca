@@ -6,12 +6,14 @@ namespace Biblioteca.View
 {
     public partial class PrestamosYDevoluciones : Form
     {
-        private readonly BibliotecaController _bibliotecaController;
+        private readonly PrestamosController _prestamosController;
+	    private readonly ViewMediator _viewMediator;
 
-        public PrestamosYDevoluciones(BibliotecaController bibliotecaController)
+        public PrestamosYDevoluciones(PrestamosController bibliotecaController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            _bibliotecaController = bibliotecaController;
+            _prestamosController = bibliotecaController;
+	        _viewMediator = viewMediator;
         }
 
         private void PrestamosYDevoluciones_Load(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace Biblioteca.View
             //Limpiamos lista para traer todos las filas nuevamente y evitar agregarlas nuevamente
             GrillaPrestamos.Rows.Clear();
 
-            var listadoDePrestamos = _bibliotecaController.ObtenerListadoPrestamos();
+            var listadoDePrestamos = _prestamosController.ObtenerListadoPrestamos();
 
             for (int i = 0; i < listadoDePrestamos.Count; i++)
             {
@@ -53,39 +55,38 @@ namespace Biblioteca.View
 
         private void Prestar(object sender, EventArgs e)
         {
-            var resultado = _bibliotecaController.RealizarPrestamo(textBox1.Text, textBox2.Text);
+            var resultado = _prestamosController.RealizarPrestamo(socioTexbox.Text, LibroTextBox.Text);
             Utils.MessageBoxExtension.Show(resultado);
             MostrarListadoPrestamosActual();
         }
 
         private void Devolver(object sender, EventArgs e)
         {
-            var resultado = _bibliotecaController.RecibirDevolucion(textBox1.Text, textBox2.Text);
+            var resultado = _prestamosController.RecibirDevolucion(socioTexbox.Text, LibroTextBox.Text);
             Utils.MessageBoxExtension.Show(resultado);
 
             MostrarListadoPrestamosActual();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void SocioTextBox_TextChanged(object sender, EventArgs e)
         {
             ChequearSiTextoHaSidoCargado();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void LibroTextBox_TextChanged(object sender, EventArgs e)
         {
             ChequearSiTextoHaSidoCargado();
         }
 
         private void ChequearSiTextoHaSidoCargado()
         {
-            PrestamoBoton.Enabled = !string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text);
-            DevolucionBoton.Enabled = !string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text);
+            PrestamoBoton.Enabled = !string.IsNullOrWhiteSpace(socioTexbox.Text) && !string.IsNullOrWhiteSpace(LibroTextBox.Text);
+            DevolucionBoton.Enabled = !string.IsNullOrWhiteSpace(socioTexbox.Text) && !string.IsNullOrWhiteSpace(LibroTextBox.Text);
         }
 
         private void VolverAOperaciones(object sender, EventArgs e)
         {
-            ViewMediator.Operaciones.Show();
-            this.Hide();
+		    _viewMediator.IrAOperaciones();
         }
     }
 }

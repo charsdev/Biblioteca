@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Xml;
 using Biblioteca.Utils;
 using Biblioteca.Interfaces;
 

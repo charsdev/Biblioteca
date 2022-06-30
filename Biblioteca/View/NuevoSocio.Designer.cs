@@ -189,7 +189,6 @@ namespace Biblioteca.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Expres: Nuevo Socio";
             this.Deactivate += new System.EventHandler(this.NuevoSocio_Unload);
-            this.Load += new System.EventHandler(this.NuevoSocio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

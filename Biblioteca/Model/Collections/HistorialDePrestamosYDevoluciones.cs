@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace Biblioteca.Model
 {
     [CollectionDataContract(Name = "Historial")]
-    public class HisotorialDePrestamosYDevoluciones : List<Tuple<string, Prestamo, DateTime>>, ICollectionDataContract
+    public class HistorialDePrestamosYDevoluciones : List<Tuple<string, Prestamo, DateTime>>, ICollectionDataContract
     {
         public string File { get => "historial.xml"; }
 
