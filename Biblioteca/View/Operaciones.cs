@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Biblioteca.Model;
+using System;
 using System.Windows.Forms;
 
 namespace Biblioteca.View
@@ -51,6 +42,25 @@ namespace Biblioteca.View
         private void IrASocios(object sender, EventArgs e)
         {
             _viewMediator.IrAListaDeSocios();
+        }
+
+        private void IrAEjemplares(object sender, EventArgs e)
+        {
+            _viewMediator.IrAListaEjemplares();
+        }
+
+        private void Operaciones_Closing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+
+            DialogResult dialogResult = MessageBox.Show("¿Desea persistir la base de datos?", "Biblioteca Express",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.No)
+            {
+                DataBase.Clear();
+            }
+
         }
 
     }

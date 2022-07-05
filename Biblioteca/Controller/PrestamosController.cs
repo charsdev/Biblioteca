@@ -4,6 +4,7 @@ using Biblioteca.Model;
 using System.Linq;
 using Biblioteca.Utils;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace Biblioteca.Controller
 {
@@ -25,7 +26,7 @@ namespace Biblioteca.Controller
                     tipo,
                     prestamo.Ejemplar.Libro.CodigoISBN,
                     prestamo.Ejemplar.Libro.Nombre,
-                    prestamo.Socio.NumeroDeIdentificacion.ToString(),
+                    prestamo.Socio.NumeroDeIdentificacion,
                     prestamo.Socio.Nombre + ' ' + prestamo.Socio.Apellido,
                     //Dado que solo hay dos opciones (Prestamo o Devolución) opto por un operador ternario
                     tipo == "Prestamo" ? prestamo.FechaDePrestamo.ToString() : fechaDevolucion.ToString()
@@ -35,64 +36,68 @@ namespace Biblioteca.Controller
             return filas;
         }
 
-        public MessageResult RealizarPrestamo(string socioID, string libroID)
+        public void RealizarPrestamo(string socioID, string codigoISBN)
         {
-            if (!ulong.TryParse(socioID, out ulong socioParseID))
+            if (!DataBase.Socios.TryGetValue(socioID, out Tuple<string, Socio> socio))
             {
-                return new MessageResult("El Numero de identificación no corresponde al formato requerido, utilice unicamente numeros positivos para identificar un socio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontro un socio asociado a ese numero de identificación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (!DataBase.Socios.TryGetValue(socioParseID, out Tuple<string, Socio> socio))
+            if (!DataBase.Libros.TryGetValue(codigoISBN, out Libro libro))
             {
-                return new MessageResult("No se encontro un socio asociado a ese numero de identificación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (!DataBase.Libros.TryGetValue(libroID, out Libro libro))
-            {
-                return new MessageResult("No se encontro un libro con ese código ISBN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontro un libro con ese código ISBN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             if (!libro.TieneEjemplares())
             {
-                return new MessageResult("El libro que busca no tiene ejemplares.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El libro que busca no tiene ejemplares", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-
+        
             if (!socio.Item2.TieneCupoDisponibleParaRetiroDeLibro())
             {
-                return new MessageResult($"El Socio { socio.Item2.Nombre } { socio.Item2.Apellido } llegó al máximo de retiros disponibles.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"El Socio { socio.Item2.Nombre } { socio.Item2.Apellido }" +
+                    " llegó al máximo de retiros disponibles.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
             }
 
             Ejemplar ejemplarAPrestar = libro.PrestarUnEjemplar();
             socio.Item2.PedirPrestadoEjemplar(ejemplarAPrestar);
-            Prestamo prestamo = new Prestamo(socio.Item2, ejemplarAPrestar);
+            Prestamo prestamo =  new Prestamo(socio.Item2, ejemplarAPrestar);
             DataBase.Prestamos.Add(prestamo);
             DataBase.Historial.Add(Tuple.Create("Prestamo", prestamo, DateTime.Now));
-
             DataBase.UpdateAll();
 
-            return new MessageResult($"Se ha prestado un ejemplar del libro {libro.Nombre} al socio {socio.Item2.Nombre} {socio.Item2.Apellido}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Se ha prestado un ejemplar del libro {libro.Nombre} " +
+                $"al socio {socio.Item2.Nombre} {socio.Item2.Apellido}",
+                "Success", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
         }
 
-        public MessageResult RecibirDevolucion(string socioID, string libroID)
+        public void RecibirDevolucion(string socioID, string codigoISBN)
         {
-            if (!ulong.TryParse(socioID, out ulong socioParseID))
+            if (!DataBase.Socios.TryGetValue(socioID, out Tuple<string, Socio> socio))
             {
-                return new MessageResult("El Numero de identificación no corresponde al formato requerido, utilice unicamente numeros positivos para identificar un socio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El libro que busca no tiene ejemplares", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
-            if (!DataBase.Socios.TryGetValue(socioParseID, out Tuple<string, Socio> socio))
+            if (!DataBase.Libros.TryGetValue(codigoISBN, out Libro libro))
             {
-                return new MessageResult("No se encontro un socio asociado a ese numero de identificación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El libro que busca no tiene ejemplares", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (!DataBase.Libros.TryGetValue(libroID, out Libro libro))
+            if (!ObtenerEjemplarADevolver(codigoISBN, socio.Item2, out Ejemplar ejemplarADevolver))
             {
-                return new MessageResult("No se encontro un libro con ese código ISBN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (!ObtenerEjemplarADevolver(libroID, socio.Item2, out Ejemplar ejemplarADevolver))
-            {
-                return new MessageResult($"No se encontro un ejemplar a devolver para el libro {libro.Nombre}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No se encontro un ejemplar a devolver para el libro {libro.Nombre}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             socio.Item2.DevolverEjemplar(ejemplarADevolver);
@@ -102,31 +107,31 @@ namespace Biblioteca.Controller
             //para colocarlo tambien en la lista de devolucion
             //buscar el prestamo que sea del mismo usuario 
 
-            MessageResult message = default(MessageResult);
-
-            foreach (var item in
-                from item in DataBase.Prestamos
-                where item.Ejemplar.NumeroDeEdicion == ejemplarADevolver.NumeroDeEdicion
-                where item.Socio.NumeroDeIdentificacion == socio.Item2.NumeroDeIdentificacion
-                select item)
+            string message = "";
+            foreach (var item in DataBase.Prestamos)
             {
-                DataBase.Historial.Add(Tuple.Create("Devolución", item, DateTime.Now));
-                DataBase.Prestamos.Remove(item);
-                message = new MessageResult($"El ejemplar {ejemplarADevolver.NumeroDeEdicion} del libro {libro.Nombre} ha sido devuelto", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                break;
+                if (item.Ejemplar.NumeroDeEdicion == ejemplarADevolver.NumeroDeEdicion
+                    && item.Socio.NumeroDeIdentificacion == socio.Item2.NumeroDeIdentificacion)
+                {
+                    DataBase.Historial.Add(Tuple.Create("Devolución", item, DateTime.Now));
+                    DataBase.Prestamos.Remove(item);
+                    message = $"El ejemplar {ejemplarADevolver.NumeroDeEdicion} del libro {libro.Nombre} ha sido devuelto";
+                    break;
+                }
             }
 
             DataBase.UpdateAll();
-            return message;
+            MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
-        private bool ObtenerEjemplarADevolver(string libroID, Socio socio, out Ejemplar ejemplarADevolver)
+        private bool ObtenerEjemplarADevolver(string CodigoISBN, Socio socio, out Ejemplar ejemplarADevolver)
         {
-            ejemplarADevolver = default(Ejemplar);
+            ejemplarADevolver = default;
 
             foreach (var ejemplar in socio.EjemplaresRetirados)
             {
-                if (ejemplar.Libro.CodigoISBN == libroID)
+                if (ejemplar.Libro.CodigoISBN == CodigoISBN)
                 {
                     ejemplarADevolver = ejemplar;
                     return true;
@@ -135,4 +140,6 @@ namespace Biblioteca.Controller
             return false;
         }
     }
+
+   
 }

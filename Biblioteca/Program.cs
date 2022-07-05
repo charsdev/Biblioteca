@@ -16,12 +16,10 @@ namespace Biblioteca
         static void Main()
         {
             DataBase.Init();
-            DataBase.Clear(); // Desea que persista la base de datos? Comente esta linea
             DataBase.ChargeData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ViewMediator viewMediator = new ViewMediator();
-            Application.Run(viewMediator.VistaActual);
+            Application.Run(new ViewMediator());
         }
     }
 }

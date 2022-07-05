@@ -29,19 +29,23 @@ namespace Biblioteca.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.ApellidoTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LabelNombre = new System.Windows.Forms.Label();
+            this.LabelApellido = new System.Windows.Forms.Label();
+            this.LabelNumeroDeIdentificacion = new System.Windows.Forms.Label();
+            this.LabelTipo = new System.Windows.Forms.Label();
             this.NumeroIdentificacionTextBox = new System.Windows.Forms.TextBox();
             this.VIP = new System.Windows.Forms.RadioButton();
             this.Comun = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.CuotaMensualTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.BotonAñadir = new System.Windows.Forms.Button();
+            this.BotonVolverAOperaciones = new System.Windows.Forms.Button();
+            this.CuotaMensualLabel = new System.Windows.Forms.Label();
+            this.CuotaMensualTextBox = new System.Windows.Forms.NumericUpDown();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.CuotaMensualTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreTextBox
@@ -50,7 +54,7 @@ namespace Biblioteca.View
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(122, 20);
             this.NombreTextBox.TabIndex = 0;
-            this.NombreTextBox.TextChanged += new System.EventHandler(this.NombreTextBox_TextChanged);
+            this.NumeroIdentificacionTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ApellidoTextBox
             // 
@@ -58,43 +62,43 @@ namespace Biblioteca.View
             this.ApellidoTextBox.Name = "ApellidoTextBox";
             this.ApellidoTextBox.Size = new System.Drawing.Size(122, 20);
             this.ApellidoTextBox.TabIndex = 1;
-            this.ApellidoTextBox.TextChanged += new System.EventHandler(this.ApellidoTextBox_TextChanged);
+            this.NumeroIdentificacionTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // label1
+            // LabelNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre";
+            this.LabelNombre.AutoSize = true;
+            this.LabelNombre.Location = new System.Drawing.Point(19, 25);
+            this.LabelNombre.Name = "LabelNombre";
+            this.LabelNombre.Size = new System.Drawing.Size(44, 13);
+            this.LabelNombre.TabIndex = 2;
+            this.LabelNombre.Text = "Nombre";
             // 
-            // label2
+            // LabelApellido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Apellido";
+            this.LabelApellido.AutoSize = true;
+            this.LabelApellido.Location = new System.Drawing.Point(19, 52);
+            this.LabelApellido.Name = "LabelApellido";
+            this.LabelApellido.Size = new System.Drawing.Size(44, 13);
+            this.LabelApellido.TabIndex = 3;
+            this.LabelApellido.Text = "Apellido";
             // 
-            // label3
+            // LabelNumeroDeIdentificacion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Número de Identificación";
+            this.LabelNumeroDeIdentificacion.AutoSize = true;
+            this.LabelNumeroDeIdentificacion.Location = new System.Drawing.Point(19, 81);
+            this.LabelNumeroDeIdentificacion.Name = "LabelNumeroDeIdentificacion";
+            this.LabelNumeroDeIdentificacion.Size = new System.Drawing.Size(125, 13);
+            this.LabelNumeroDeIdentificacion.TabIndex = 4;
+            this.LabelNumeroDeIdentificacion.Text = "Número de Identificación";
             // 
-            // label4
+            // LabelTipo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Tipo";
+            this.LabelTipo.AutoSize = true;
+            this.LabelTipo.Location = new System.Drawing.Point(21, 115);
+            this.LabelTipo.Name = "LabelTipo";
+            this.LabelTipo.Size = new System.Drawing.Size(28, 13);
+            this.LabelTipo.TabIndex = 5;
+            this.LabelTipo.Text = "Tipo";
             // 
             // NumeroIdentificacionTextBox
             // 
@@ -102,16 +106,15 @@ namespace Biblioteca.View
             this.NumeroIdentificacionTextBox.Name = "NumeroIdentificacionTextBox";
             this.NumeroIdentificacionTextBox.Size = new System.Drawing.Size(122, 20);
             this.NumeroIdentificacionTextBox.TabIndex = 6;
-            this.NumeroIdentificacionTextBox.TextChanged += new System.EventHandler(this.NumeroIdentificacionTextBox_TextChanged);
+            this.NumeroIdentificacionTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // VIP
             // 
             this.VIP.AutoSize = true;
-            this.VIP.Location = new System.Drawing.Point(198, 111);
+            this.VIP.Location = new System.Drawing.Point(244, 111);
             this.VIP.Name = "VIP";
             this.VIP.Size = new System.Drawing.Size(42, 17);
             this.VIP.TabIndex = 7;
-            this.VIP.TabStop = true;
             this.VIP.Text = "VIP";
             this.VIP.UseVisualStyleBackColor = true;
             this.VIP.CheckedChanged += new System.EventHandler(this.VipRadioButton_CheckedChanged);
@@ -119,7 +122,8 @@ namespace Biblioteca.View
             // Comun
             // 
             this.Comun.AutoSize = true;
-            this.Comun.Location = new System.Drawing.Point(244, 111);
+            this.Comun.Checked = true;
+            this.Comun.Location = new System.Drawing.Point(180, 111);
             this.Comun.Name = "Comun";
             this.Comun.Size = new System.Drawing.Size(58, 17);
             this.Comun.TabIndex = 8;
@@ -128,44 +132,54 @@ namespace Biblioteca.View
             this.Comun.UseVisualStyleBackColor = true;
             this.Comun.CheckedChanged += new System.EventHandler(this.ComunRadioButton_CheckedChanged);
             // 
-            // button1
+            // BotonAñadir
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(233, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Añadir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AñadirSocio);
+            this.BotonAñadir.Enabled = false;
+            this.BotonAñadir.Location = new System.Drawing.Point(233, 188);
+            this.BotonAñadir.Name = "BotonAñadir";
+            this.BotonAñadir.Size = new System.Drawing.Size(75, 23);
+            this.BotonAñadir.TabIndex = 9;
+            this.BotonAñadir.Text = "Añadir";
+            this.BotonAñadir.UseVisualStyleBackColor = true;
+            this.BotonAñadir.Click += new System.EventHandler(this.AñadirSocio);
             // 
-            // button2
+            // BotonVolverAOperaciones
             // 
-            this.button2.Location = new System.Drawing.Point(90, 188);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Volver a Operaciones";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.VolverAOperaciones);
+            this.BotonVolverAOperaciones.Location = new System.Drawing.Point(90, 188);
+            this.BotonVolverAOperaciones.Name = "BotonVolverAOperaciones";
+            this.BotonVolverAOperaciones.Size = new System.Drawing.Size(128, 23);
+            this.BotonVolverAOperaciones.TabIndex = 10;
+            this.BotonVolverAOperaciones.Text = "Volver a Operaciones";
+            this.BotonVolverAOperaciones.UseVisualStyleBackColor = true;
+            this.BotonVolverAOperaciones.Click += new System.EventHandler(this.VolverAOperaciones);
+            // 
+            // CuotaMensualLabel
+            // 
+            this.CuotaMensualLabel.AutoSize = true;
+            this.CuotaMensualLabel.Location = new System.Drawing.Point(21, 147);
+            this.CuotaMensualLabel.Name = "CuotaMensualLabel";
+            this.CuotaMensualLabel.Size = new System.Drawing.Size(77, 13);
+            this.CuotaMensualLabel.TabIndex = 11;
+            this.CuotaMensualLabel.Text = "Cuota mensual";
             // 
             // CuotaMensualTextBox
             // 
             this.CuotaMensualTextBox.Enabled = false;
-            this.CuotaMensualTextBox.Location = new System.Drawing.Point(182, 144);
+            this.CuotaMensualTextBox.Location = new System.Drawing.Point(180, 145);
+            this.CuotaMensualTextBox.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.CuotaMensualTextBox.Name = "CuotaMensualTextBox";
-            this.CuotaMensualTextBox.Size = new System.Drawing.Size(122, 20);
+            this.CuotaMensualTextBox.Size = new System.Drawing.Size(120, 20);
             this.CuotaMensualTextBox.TabIndex = 12;
-            this.CuotaMensualTextBox.TextChanged += new System.EventHandler(this.CuotaMensualTextBox_TextChanged);
+            this.CuotaMensualTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+
             // 
-            // label5
+            // errorProvider
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cuota mensual";
+            this.errorProvider.ContainerControl = this;
             // 
             // NuevoSocio
             // 
@@ -173,22 +187,23 @@ namespace Biblioteca.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 241);
             this.Controls.Add(this.CuotaMensualTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CuotaMensualLabel);
+            this.Controls.Add(this.BotonVolverAOperaciones);
+            this.Controls.Add(this.BotonAñadir);
             this.Controls.Add(this.Comun);
             this.Controls.Add(this.VIP);
             this.Controls.Add(this.NumeroIdentificacionTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelTipo);
+            this.Controls.Add(this.LabelNumeroDeIdentificacion);
+            this.Controls.Add(this.LabelApellido);
+            this.Controls.Add(this.LabelNombre);
             this.Controls.Add(this.ApellidoTextBox);
             this.Controls.Add(this.NombreTextBox);
             this.Name = "NuevoSocio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Expres: Nuevo Socio";
-            this.Deactivate += new System.EventHandler(this.NuevoSocio_Unload);
+            ((System.ComponentModel.ISupportInitialize)(this.CuotaMensualTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,16 +213,17 @@ namespace Biblioteca.View
 
         private System.Windows.Forms.TextBox NombreTextBox;
         private System.Windows.Forms.TextBox ApellidoTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LabelNombre;
+        private System.Windows.Forms.Label LabelApellido;
+        private System.Windows.Forms.Label LabelNumeroDeIdentificacion;
+        private System.Windows.Forms.Label LabelTipo;
         private System.Windows.Forms.TextBox NumeroIdentificacionTextBox;
         private System.Windows.Forms.RadioButton VIP;
         private System.Windows.Forms.RadioButton Comun;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox CuotaMensualTextBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BotonAñadir;
+        private System.Windows.Forms.Button BotonVolverAOperaciones;
+        private System.Windows.Forms.Label CuotaMensualLabel;
+        private System.Windows.Forms.NumericUpDown CuotaMensualTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

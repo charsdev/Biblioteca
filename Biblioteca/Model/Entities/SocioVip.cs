@@ -10,7 +10,7 @@ namespace Biblioteca.Model
         [DataMember(Name ="CuotaMensual")]
         private readonly decimal _cuotaMensual;
 
-        public SocioVip(string nombre, string apellido, ulong numeroDeIdentificacion, decimal cuotaMensual)
+        public SocioVip(string nombre, string apellido, string numeroDeIdentificacion, decimal cuotaMensual)
             : base(nombre, apellido, numeroDeIdentificacion)
         {
             _cuotaMensual = cuotaMensual;

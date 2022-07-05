@@ -21,7 +21,7 @@ namespace Biblioteca.View
             InitializeComponent();
             _sociosController = sociosController;
             _viewMediator = viewMediator;
-            DefinirColumnas();
+            ControlBox = false;
         }
 
         private void VolverAOperaciones(object sender, EventArgs e)
@@ -32,22 +32,6 @@ namespace Biblioteca.View
         private void VistaSocios_Load(object sender, EventArgs e)
         {
             MostrarListadoSociosActual();
-        }
-
-        private void DefinirColumnas()
-        {
-            string[] columns = new string[] {
-                "N°",
-                "Nombre",
-                "Apellido",
-                "Numero de identificacion",
-                "Tipo"
-            };
-
-            for (int i = 0; i < columns.Length; i++)
-            {
-                dataGridView1.Columns.Add(columns[i], columns[i]);
-            }
         }
 
         private void MostrarListadoSociosActual()
@@ -62,5 +46,7 @@ namespace Biblioteca.View
                 dataGridView1.Rows.Add(listadoDeSocios[i]);
             }
         }
+
+       
     }
 }

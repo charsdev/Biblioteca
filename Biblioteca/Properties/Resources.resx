@@ -121,4 +121,7 @@
   <data name="wordart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wordart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Window_Header" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Window_Header1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

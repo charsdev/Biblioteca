@@ -1,12 +1,5 @@
 ﻿using Biblioteca.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Biblioteca.View
@@ -19,7 +12,7 @@ namespace Biblioteca.View
         public ListaDeLibros(LibrosController librosController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            DefinirColumnas();
+            ControlBox = false;
             _librosController = librosController;
             _viewMediator = viewMediator;
         }
@@ -27,21 +20,6 @@ namespace Biblioteca.View
         private void VolverAOperaciones(object sender, EventArgs e)
         {
             _viewMediator.IrAOperaciones();
-        }
-
-        private void DefinirColumnas()
-        {
-            string[] columns = new string[] {
-                "N°",
-                "Titulo",
-                "Autor",
-                "Codigo ISBN",
-            };
-
-            for (int i = 0; i < columns.Length; i++)
-            {
-                dataGridView1.Columns.Add(columns[i], columns[i]);
-            }
         }
 
         private void MostrarListadoDeLibrosActual()
@@ -61,6 +39,6 @@ namespace Biblioteca.View
         {
             MostrarListadoDeLibrosActual();
         }
-       
+
     }
 }

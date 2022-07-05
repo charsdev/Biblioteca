@@ -10,7 +10,7 @@ namespace Biblioteca.Model
     Namespace = "")]
     [KnownType(typeof(SocioComun))]
     [KnownType(typeof(SocioVip))]
-    public class ColeccionDeSocios : Dictionary<ulong, Tuple<string, Socio>>, ICollectionDataContract
+    public class ColeccionDeSocios : Dictionary<string, Tuple<string, Socio>>, ICollectionDataContract
     {
         public string File { get => "socios.xml"; }
 

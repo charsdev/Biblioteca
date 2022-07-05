@@ -12,12 +12,8 @@ namespace Biblioteca.Model
         public uint NumeroDeEdicion { get; set; }
         [DataMember(Order = 2)]
         public string Ubicacion { get; set; }
-
         [DataMember(Order = 3)]
-        public Libro Libro
-        {
-            get; set;
-        }
+        public Libro Libro{ get; set; }
 
         public Ejemplar(Libro libro, uint numeroDeEdicion, string ubicacion)
         {

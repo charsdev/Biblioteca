@@ -1,0 +1,17 @@
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Release\Biblioteca.exe.config
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Release\Biblioteca.exe
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\bin\Release\Biblioteca.pdb
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.EjemplaresDisponibles.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.PrestamosYDevoluciones.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.Properties.Resources.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.NuevoEjemplar.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.NuevoLibro.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.NuevoSocio.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.Operaciones.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.ListaDeLibros.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.View.ListaDeSocios.resources
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.exe
+C:\Users\Admin\source\repos\Biblioteca\Biblioteca\obj\Release\Biblioteca.pdb

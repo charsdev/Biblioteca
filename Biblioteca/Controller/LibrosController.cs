@@ -1,5 +1,4 @@
 ﻿using Biblioteca.Model;
-using Biblioteca.Utils;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -7,36 +6,32 @@ namespace Biblioteca.Controller
 {
     public class LibrosController
     {
-        public MessageResult AñadirNuevoLibro(string titulo, string codigoISBN, string autor)
+        public void AñadirNuevoLibro(string titulo, string codigoISBN, string autor)
         {
             if (DataBase.Libros.ContainsKey(codigoISBN))
             {
-                return new MessageResult("Ya existe un libro con ese código ISBN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ya existe un libro con ese código ISBN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             Libro libro = new Libro(titulo, codigoISBN, autor);
-            DataBase.Libros.Add(libro.CodigoISBN, libro);
 
+            DataBase.Libros.Add(codigoISBN, libro);
             DataBase.Libros.Update();
-
-            return new MessageResult($"El libro {libro.Nombre} ha sido añadido", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"El libro {libro.Nombre} ha sido añadido", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public MessageResult AñadirEjemplarALibro(string codigoISBN, string numeroEdicion, string ubicacion)
+        public void AñadirEjemplarALibro(string codigoISBN, uint numeroEdicion, string ubicacion)
         {
             if (!DataBase.Libros.TryGetValue(codigoISBN, out Libro libro))
             {
-                return new MessageResult("No se encontro el libro con el código ISBN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontró el libro con el código ISBN ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            if (!uint.TryParse(numeroEdicion, out uint edicionId))
-            {
-                return new MessageResult("El numero de edicion no corresponde al formato requerido use unicamente números positivos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            libro.AgregarEjemplar(edicionId, ubicacion);
+            libro.AgregarEjemplar(numeroEdicion, ubicacion);
             DataBase.Libros.Update();
-            return new MessageResult($"El Ejemplar {numeroEdicion} del libro {libro.Nombre} con ubicación en {ubicacion} ha sido añadido", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Se ha agregado el ejemplar para el libro {libro.Nombre}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public List<string[]> ObtenerListadoLibros()
@@ -61,6 +56,43 @@ namespace Biblioteca.Controller
                 i++;
             }
             return filas;
+        }
+
+        public void ObtenerListadoEjemplares(string codigoISBN, out List<string[]> ejemplaresDisponibles)
+        {
+            ejemplaresDisponibles = new List<string[]>();
+
+            if (!DataBase.Libros.TryGetValue(codigoISBN, out Libro libro))
+            {
+                MessageBox.Show("No se encontro un libro con ese código ISBN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+            
+            if (!libro.TieneEjemplares())
+            {
+                MessageBox.Show("El libro no tiene ejemplares disponibles.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+
+            int i = 1;
+            foreach (var ejemplar in libro.Ejemplares)
+            {
+                string ubicacion = ejemplar.Ubicacion;
+                uint numeroDeEdicion = ejemplar.NumeroDeEdicion;
+                string titulo = ejemplar.Libro.Nombre;
+
+                string[] row = new string[]
+                {
+                    i.ToString(),
+                    titulo,
+                    ubicacion,
+                    numeroDeEdicion.ToString(),
+                };
+                ejemplaresDisponibles.Add(row);
+                i++;
+            }
+            MessageBox.Show("Se han traido todos los ejemplares disponibles", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }

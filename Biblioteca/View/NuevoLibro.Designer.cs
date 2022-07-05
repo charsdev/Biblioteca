@@ -29,14 +29,17 @@ namespace Biblioteca.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BotonNuevoLibro = new System.Windows.Forms.Button();
             this.CodigoISBNTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AutorTextBox = new System.Windows.Forms.TextBox();
             this.TituloTextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -51,14 +54,14 @@ namespace Biblioteca.View
             // 
             // button1
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(246, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Añadir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AñadirLibro);
+            this.BotonNuevoLibro.Enabled = false;
+            this.BotonNuevoLibro.Location = new System.Drawing.Point(246, 150);
+            this.BotonNuevoLibro.Name = "button1";
+            this.BotonNuevoLibro.Size = new System.Drawing.Size(75, 23);
+            this.BotonNuevoLibro.TabIndex = 17;
+            this.BotonNuevoLibro.Text = "Añadir";
+            this.BotonNuevoLibro.UseVisualStyleBackColor = true;
+            this.BotonNuevoLibro.Click += new System.EventHandler(this.AñadirLibro);
             // 
             // CodigoISBNTextBox
             // 
@@ -111,13 +114,17 @@ namespace Biblioteca.View
             this.TituloTextBox.TabIndex = 11;
             this.TituloTextBox.TextChanged += new System.EventHandler(this.TituloTextBox_TextChanged);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // NuevoLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 188);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BotonNuevoLibro);
             this.Controls.Add(this.CodigoISBNTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -127,7 +134,7 @@ namespace Biblioteca.View
             this.Name = "NuevoLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express: Nuevo Libro";
-            this.Deactivate += new System.EventHandler(this.NuevoLibro_Unload);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +143,13 @@ namespace Biblioteca.View
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BotonNuevoLibro;
         private System.Windows.Forms.TextBox CodigoISBNTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox AutorTextBox;
         private System.Windows.Forms.TextBox TituloTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

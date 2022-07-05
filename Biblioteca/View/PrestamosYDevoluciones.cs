@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Controller;
+using Biblioteca.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -7,37 +8,19 @@ namespace Biblioteca.View
     public partial class PrestamosYDevoluciones : Form
     {
         private readonly PrestamosController _prestamosController;
-	    private readonly ViewMediator _viewMediator;
+        private readonly ViewMediator _viewMediator;
 
-        public PrestamosYDevoluciones(PrestamosController bibliotecaController, ViewMediator viewMediator)
+        public PrestamosYDevoluciones(PrestamosController prestamosController, ViewMediator viewMediator)
         {
             InitializeComponent();
-            _prestamosController = bibliotecaController;
-	        _viewMediator = viewMediator;
+            ControlBox = false;
+            _prestamosController = prestamosController;
+            _viewMediator = viewMediator;
         }
 
         private void PrestamosYDevoluciones_Load(object sender, EventArgs e)
         {
-            DefinirColumnas();
             MostrarListadoPrestamosActual();
-        }
-
-        private void DefinirColumnas()
-        {
-            string[] columns = new string[] {
-                "N°",
-                "Tipo",
-                "Nro° Libro",
-                "Nombre del Libro",
-                "Nro° Socio",
-                "Nombre y Apellido del Socio",
-                "Fecha de prestamo"
-            };
-
-            for (int i = 0; i < columns.Length; i++)
-            {
-                GrillaPrestamos.Columns.Add(columns[i], columns[i]);
-            }
         }
 
         private void MostrarListadoPrestamosActual()
@@ -53,18 +36,21 @@ namespace Biblioteca.View
             }
         }
 
+        public void DisableButtons()
+        {
+            DevolucionBoton.Enabled = false;
+            PrestamoBoton.Enabled = false;
+        }
+
         private void Prestar(object sender, EventArgs e)
         {
-            var resultado = _prestamosController.RealizarPrestamo(socioTexbox.Text, LibroTextBox.Text);
-            Utils.MessageBoxExtension.Show(resultado);
+            _prestamosController.RealizarPrestamo(socioTexbox.Text, LibroTextBox.Text);
             MostrarListadoPrestamosActual();
         }
 
         private void Devolver(object sender, EventArgs e)
         {
-            var resultado = _prestamosController.RecibirDevolucion(socioTexbox.Text, LibroTextBox.Text);
-            Utils.MessageBoxExtension.Show(resultado);
-
+            _prestamosController.RecibirDevolucion(socioTexbox.Text, LibroTextBox.Text);
             MostrarListadoPrestamosActual();
         }
 
@@ -86,7 +72,8 @@ namespace Biblioteca.View
 
         private void VolverAOperaciones(object sender, EventArgs e)
         {
-		    _viewMediator.IrAOperaciones();
+            _viewMediator.IrAOperaciones();
         }
+
     }
 }

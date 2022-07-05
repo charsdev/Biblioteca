@@ -18,6 +18,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+
         }
 
         #region Windows Form Designer generated code
@@ -35,6 +36,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -89,7 +91,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(511, 47);
+            this.button5.Location = new System.Drawing.Point(511, 27);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(73, 27);
             this.button5.TabIndex = 7;
@@ -100,7 +102,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(511, 80);
+            this.button6.Location = new System.Drawing.Point(511, 93);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 27);
             this.button6.TabIndex = 8;
@@ -108,6 +110,17 @@
             this.button6.Text = "Socios";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.IrASocios);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(511, 60);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(73, 27);
+            this.button7.TabIndex = 9;
+            this.button7.TabStop = false;
+            this.button7.Text = "Ejemplares";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.IrAEjemplares);
             // 
             // pictureBox3
             // 
@@ -148,6 +161,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(606, 401);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox3);
@@ -158,10 +172,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Operaciones";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Express: Operaciones";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Operaciones_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -180,5 +195,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }

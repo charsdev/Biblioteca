@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Biblioteca.View
 {
-    public class ViewMediator
+    public class ViewMediator : ApplicationContext
     {
         private readonly NuevoEjemplar _nuevoEjemplar;
         private readonly NuevoLibro _nuevoLibro;
@@ -12,6 +12,8 @@ namespace Biblioteca.View
         private readonly Operaciones _operaciones;
         private readonly ListaDeLibros _listaDeLibros;
         private readonly ListaDeSocios _listaDeSocios;
+        private readonly EjemplaresDisponibles _ejemplaresDisponibles;
+
         public Form VistaActual { get; private set; }
 
         public ViewMediator()
@@ -27,57 +29,70 @@ namespace Biblioteca.View
             _operaciones = new Operaciones(this);
             _listaDeLibros = new ListaDeLibros(librosController, this);
             _listaDeSocios = new ListaDeSocios(sociosController, this);
+            _ejemplaresDisponibles = new EjemplaresDisponibles(librosController, this);
+
             VistaActual = _operaciones;
+            _operaciones.Show();
+
+            VistaActual = _operaciones;
+            VistaActual.ShowInTaskbar = true;
         }
 
         public void IrANuevoEjemplar()
         {
-            VistaActual.Hide();
-            _nuevoEjemplar.Show();
-            VistaActual = _nuevoEjemplar;
+            IrAVista(_nuevoEjemplar);
+            _nuevoEjemplar.DisableButton();
+        }
+
+        public void IrAListaEjemplares()
+        {
+            IrAVista(_ejemplaresDisponibles);
         }
 
         public void IrANuevoLibro()
         {
-            VistaActual.Hide();
-            _nuevoLibro.Show();
-            VistaActual = _nuevoLibro;
+            IrAVista(_nuevoLibro);
+            _nuevoLibro.DisableButton();
         }
 
         public void IrANuevoSocio()
         {
-            VistaActual.Hide();
-            _nuevoSocio.Show();
-            VistaActual = _nuevoSocio;
+            IrAVista(_nuevoSocio);
+            _nuevoSocio.DisableButton();
         }
 
         public void IrAPrestamosYDevoluciones()
         {
-            VistaActual.Hide();
-            _prestamosYDevoluciones.Show();
-            VistaActual = _prestamosYDevoluciones;
+            IrAVista(_prestamosYDevoluciones);
+            _prestamosYDevoluciones.DisableButtons();
         }
 
         public void IrAOperaciones()
         {
-            VistaActual.Hide();
-            _operaciones.Show();
-            VistaActual = _operaciones;
+            IrAVista(_operaciones, true);
         }
 
         public void IrAListaDeLibros()
         {
-            VistaActual.Hide();
-            _listaDeLibros.Show();
-            VistaActual = _listaDeLibros;
+            IrAVista(_listaDeLibros);
         }
 
         public void IrAListaDeSocios() 
         {
-            VistaActual.Hide();
-            _listaDeSocios.Show();
-            VistaActual = _listaDeSocios;
+            IrAVista(_listaDeSocios);
         }
 
+        private void IrAVista(Form form, bool mostrarEnListaDeTareas = false) 
+        {
+            VistaActual.TopMost = false;
+            VistaActual.Opacity = 0;
+
+            VistaActual = form;
+            VistaActual.Show();
+            VistaActual.Opacity = 1;
+
+            VistaActual.ShowInTaskbar = mostrarEnListaDeTareas;
+            VistaActual.TopMost = true;
+        }
     }
 }

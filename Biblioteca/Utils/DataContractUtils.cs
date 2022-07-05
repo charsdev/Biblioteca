@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace Biblioteca.Utils
 {
@@ -12,11 +16,11 @@ namespace Biblioteca.Utils
             DataContractSerializer serializer = new DataContractSerializer(dataToSerialize.GetType());
             using (var xmlFile = XmlWriter.Create(filename, new XmlWriterSettings { Indent = true }))
             {
-               serializer.WriteObject(xmlFile, dataToSerialize);
+                serializer.WriteObject(xmlFile, dataToSerialize);
             }
         }
 
-        public static T Deserialize<T>(this T data, string filename) 
+        public static T Deserialize<T>(this T data, string filename)
         {
             using (var xmlFile = XmlReader.Create(filename))
             {
@@ -24,6 +28,7 @@ namespace Biblioteca.Utils
                 return (T)serializer.ReadObject(xmlFile);
             }
         }
-
     }
+
 }
+    
